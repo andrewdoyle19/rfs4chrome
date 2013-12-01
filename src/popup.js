@@ -24,19 +24,19 @@
         for (var i = 0; i < data.length; i++) {
             //$("#results").append(data[i].Title + " - ");
             var item = data[i];
-            var markup = appendMarkup(item);
+            var markup = appendMarkup(item,i);
             $("#results").append(markup);
         };        
   		
     }
 
-    function appendMarkup(item) {
+    function appendMarkup(item, i) {
         var category = item.Category.toLowerCase();
         var item =        
-            '<div class="item">' +
-                '<div class="box ' + category +'"></div>' +
+            '<div class="item'+ i +'">' +
+                '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>' +
                 '<div class="title">' + item.Title +'</div>' +
-                '<div class="status">' + item.Status +'</div>' +
+                '<div class="status">Status: ' + item.Status +'</div>' +
             '</div>';
         return item;
     }

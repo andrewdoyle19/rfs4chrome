@@ -5,31 +5,35 @@
 
 }
 
-.item {
+div[class*='item'] {
+	border-color: white;
+	border-style: solid;
 	padding: 4px;
-	background-color: azure;
+	background-color: rgb(226,225,225);
 	width: 350px;
 	height: 50px;
-
 }
 
 .box {
 	float: left;
-	margin: 5px 15px 5px 5px;
-	padding: 10px;
-	width: 16px;
-	height: 16px;
-	border: 1px;
+	margin: 8px 15px 5px 5px;
+	padding: 5px 12px 15px 8px;
+	width: 10px;
+	height: 10px;
+	border: 2px;
 	border-style: solid;
+	border-color: white;
+	background-color: rgb(230,230,235);
+
 }
 .advice {
-	background-color: blue;
+	
 }
 .watchandact {
-	background-color: yellow;
+	
 }
 .emergencywarning {
-	background-color: red;
+	
 }
 .title {
 	font-family: sans-serif;
@@ -37,8 +41,6 @@
 	padding-top: 5px;
 	margin-left: 31px;
     width: 300px;
-    
-
 }
 .status {
 	font-family: sans-serif;
