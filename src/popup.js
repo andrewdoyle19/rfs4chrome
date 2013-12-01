@@ -14,13 +14,13 @@
                 contentType: 'jsonp',
                 dataType: 'jsonp',
                 success: function( data ) {
-                    parseXml(data);
-                }
+                    parseResult(data);
+                }                
             });
     }
 
 
-    function parseXml(data) {
+    function parseResult(data) {
         for (var i = 0; i < data.length; i++) {
             //$("#results").append(data[i].Title + " - ");
             var item = data[i];
@@ -32,12 +32,33 @@
 
     function appendMarkup(item, i) {
         var category = item.Category.toLowerCase();
+        var displayCategory = getDisplayCategory(category)
         var item =        
             '<div class="item'+ i +'">' +
                 '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>' +
+                '<div class="category">' + displayCategory +'</div>' +
                 '<div class="title">' + item.Title +'</div>' +
                 '<div class="status">Status: ' + item.Status +'</div>' +
             '</div>';
+        return item;
+    }
+    function getDisplayCategory(item){
+        if(item === "advice")
+        {
+            return "Advice";
+        }
+        if(item === "watchandact")
+        {
+            return "Watch and Act";        
+        }
+        if(item === "emergencywarning")
+        {
+            return "Emergency Warning";        
+        }
+        if(item === "notapplicable")
+        {
+            return "Not Applicable";
+        }
         return item;
     }
 
