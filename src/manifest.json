@@ -3,7 +3,7 @@
 
   "name": "RFS4Chrome",
   "description": "This extension reads the NSW Rural Fire Service XML Document",
-  "version": "1.0",
+  "version": "0.1",
 
   "browser_action": {
     "default_icon": "icon.png",

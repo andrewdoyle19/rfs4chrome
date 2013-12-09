@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     
     //const url = "https://rfsforchromeservice.apphb.com/fires";
     const url = "http://localhost/rfsforchrome.service/fires";
@@ -20,7 +20,7 @@
     }
 
 
-    function parseResult(data) {
+    function parseResult (data) {
         for (var i = 0; i < data.length; i++) {
             //$("#results").append(data[i].Title + " - ");
             var item = data[i];
@@ -35,13 +35,13 @@
         var displayCategory = getDisplayCategory(category)
         var item =        
             '<div class="item'+ i +'">' +
-                '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>' +
-                '<div class="category">' + displayCategory +'</div>' +
+                '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>' +                 
                 '<div class="title">' + item.Title +'</div>' +
                 '<div class="status">Status: ' + item.Status +'</div>' +
             '</div>';
         return item;
     }
+
     function getDisplayCategory(item){
         if(item === "advice")
         {
