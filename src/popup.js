@@ -34,11 +34,26 @@ $(function () {
         var category = item.Category.toLowerCase();
         var displayCategory = getDisplayCategory(category)
         var item =        
-            '<div class="item'+ i +'">' +
-                '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>' +                 
-                '<div class="title">' + item.Title +'</div>' +
-                '<div class="status">Status: ' + item.Status +'</div>' +
+            '<div class="item_'+ i +'">' +
+                '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>'+ 
+                '<div class="left">' +                                
+                    '<div class="title">' + item.Title +'</div>' +
+                    '<div class="status">Status: ' + item.Status +'</div>' +  
+                '</div>' +
+                '<div class="right">' +
+                                 
+                    '<div id="expand_'+ i +'">' +
+                         '<img src="images/down-arrow-grey.png"/>' +
+                    '</div>'+
+                '</div>' +
+            '</div>' +
+            '<div class="detail_'+ i + ' hidden">' + 
+                '<div class="category">Category: ' + displayCategory + '</div>' +
+                '<div class="council">Council: ' + item.CouncilArea + '</div>' +
+                '<div class="lastUpdated">Last Updated: ' + item.LastUpdatedAsString + '</div>' +
+                '<div class="Size">Size: ' + item.Size + '</div>' +
             '</div>';
+
         return item;
     }
 

@@ -14,16 +14,28 @@ div[class*='item'] {
 	border-style: solid;
 	padding: 4px;
 	background-color: rgb(226,225,225);
-	width: 350px;
+	width: 375px;
 	height: 60px;
+
 }
+
+div[class*='detail'] {
+	border-color: white;
+	border-style: solid;
+	padding: 4px;
+	background-color: oldlace;
+	width: 350px;
+	height: 80px;
+	display: none;
+}
+
 
 .box {
 	float: left;
-	margin: 8px 15px 5px 5px;
+	margin: 10px 10px 5px 5px;
 	padding: 5px 12px 15px 8px;
 	width: 10px;
-	height: 10px;
+	height: 15px;
 	border: 2px;
 	border-style: solid;
 	border-color: white;
@@ -39,11 +51,19 @@ div[class*='item'] {
 .emergencywarning {
 	border-color: red;
 }
+
+.left {
+	float: left;
+}
+.right {
+	margin-top: 20px;
+}
+
 .title {
 	font-size: 13pt;
-	padding-top: 5px;
-	margin-left: 31px;
-    width: 300px;
+	padding-top: 0px;
+	margin-top: 10px;
+    width: 270px;
 }
 .status {
 	font-family: sans-serif;
