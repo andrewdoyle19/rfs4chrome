@@ -26,6 +26,7 @@ div[id*='detail'] {
 	width: 380px;	
 	overflow: hidden;
 	padding: 0px 0px 0px 5px;
+	display: none;
 }
 
 ul{
@@ -76,4 +77,8 @@ ul{
 .status {
 	font-family: sans-serif;
 	font-size: small;
+}
+.expand {
+	float: left;
+	width: 20px;
 }

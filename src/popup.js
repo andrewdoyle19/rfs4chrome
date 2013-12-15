@@ -3,21 +3,15 @@ $(function () {
     //const url = "https://rfsforchromeservice.apphb.com/fires";
     const url = "http://localhost/rfsforchrome.service/fires";
     
-    $(window).load(function() {
-        loadData()
-    });
-
-    function loadData() {
-        $.ajax({
-                type: 'GET',
-                url: url,
-                contentType: 'jsonp',
-                dataType: 'jsonp',
-                success: function( data ) {
-                    parseResult(data);
-                }                
-            });
-    }
+    $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: 'jsonp',
+            dataType: 'jsonp',
+            success: function( data ) {
+                parseResult(data);
+            }                
+        });
 
 
     function parseResult (data) {
@@ -27,7 +21,34 @@ $(function () {
             var markup = appendMarkup(item,i);
             $("#results").append(markup);
         };        
-  		
+
+        $('.expand').click(function(){
+            var itemid = '#detail_' +$(this).attr('target');
+            var button = '#img_detail_' +$(this).attr('target');
+            
+        if($('.active').length === 0) {
+            $(itemid).slideDown();
+            $(itemid).addClass('active'); 
+            $(button).attr('src', 'images/up-arrow-grey.png');          
+        } else if (itemid == "#"+$('.active').attr('id')) {
+            $('.active').slideUp();
+            $(itemid).removeClass('active');
+            $(button).attr('src', 'images/down-arrow-grey.png');
+        } else {
+            $("[id^=img_detail]").attr('src', 'images/down-arrow-grey.png');
+            $('.active').slideUp(function() {
+                $(this).removeClass('active');
+                $(button).attr('src', 'images/down-arrow-grey.png');
+                if ($(".targetDiv:animated").length === 0){
+                    $(itemid).slideDown();
+                    $(itemid).addClass('active');
+                    $(button).attr('src', 'images/up-arrow-grey.png');
+                }
+        });
+    }
+    
+
+        });  		
     }
 
     function appendMarkup(item, i) {
@@ -40,10 +61,9 @@ $(function () {
                     '<div class="title">' + item.Title +'</div>' +
                     '<div class="status">Status: ' + item.Status +'</div>' +  
                 '</div>' +
-                '<div class="right">' +
-                                 
-                    '<div id="expand_'+ i +'">' +
-                         '<img src="images/down-arrow-grey.png"/>' +
+                '<div class="right">' +                                 
+                    '<div class="expand" target="'+ i +'" >' +
+                         '<img id="img_detail_'+ i + '" src="images/down-arrow-grey.png"/>' +
                     '</div>'+
                 '</div>' +
             '</div>' +
@@ -61,6 +81,8 @@ $(function () {
 
         return item;
     }
+
+
 
     function getDisplayCategory(item){
         if(item === "advice")
@@ -81,8 +103,4 @@ $(function () {
         }
         return item;
     }
-
-
-
-
 });
