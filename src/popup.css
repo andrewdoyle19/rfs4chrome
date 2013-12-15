@@ -19,14 +19,22 @@ div[class*='item'] {
 
 }
 
-div[class*='detail'] {
+div[id*='detail'] {
 	border-color: white;
 	border-style: solid;
-	padding: 4px;
 	background-color: oldlace;
-	width: 350px;
-	height: 80px;
-	display: none;
+	width: 380px;	
+	overflow: hidden;
+	padding: 0px 0px 0px 5px;
+}
+
+ul{
+	list-style: circle;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-padding-start: 50px;
+	margin-right: 20px;
+	font-size: 13px; 
 }
 
 

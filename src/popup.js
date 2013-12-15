@@ -47,11 +47,16 @@ $(function () {
                     '</div>'+
                 '</div>' +
             '</div>' +
-            '<div class="detail_'+ i + ' hidden">' + 
-                '<div class="category">Category: ' + displayCategory + '</div>' +
-                '<div class="council">Council: ' + item.CouncilArea + '</div>' +
-                '<div class="lastUpdated">Last Updated: ' + item.LastUpdatedAsString + '</div>' +
-                '<div class="Size">Size: ' + item.Size + '</div>' +
+            '<div id="detail_'+ i + '" class="hidden">' + 
+                '<ul>' +
+                    '<li class="category">Category: ' + displayCategory + '</li>' +
+                    '<li class="location">Location: ' + item.Location + '</li>' +
+                    '<li class="council">Council: ' + item.CouncilArea + '</li>' +
+                    '<li class="Size">Type: ' + item.Type + '</li>' +
+                    '<li class="Size">Size: ' + item.Size + '</li>' +
+                    '<li class="lastUpdated">Last Updated: ' + item.LastUpdatedAsString + '</li>' +
+                    '<li><a href="'+ item.Link +'" target="_blank">Rural Fire Service Website</a></li>' +
+                '</ul>' +
             '</div>';
 
         return item;
