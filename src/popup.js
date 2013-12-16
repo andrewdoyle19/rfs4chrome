@@ -1,17 +1,28 @@
 $(function () {
     
-    const url = "https://rfsforchromeservice.apphb.com/fires";
-    //const url = "http://localhost/rfsforchrome.service/fires";
-    
-    $.ajax({
-            type: 'GET',
-            url: url,
-            contentType: 'jsonp',
-            dataType: 'jsonp',
-            success: function( data ) {
-                parseResult(data);
-            }                
-        });
+    //const url = "https://rfsforchromeservice.apphb.com/fires";
+    const url = "http://localhost/rfsforchrome.service/fires";
+
+    window.setTimeout(loadData, 500);
+
+    function loadData() {
+        $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: 'jsonp',
+                dataType: 'jsonp',
+                crossDomain: true,
+                success: function( data ) {
+                    parseResult(data);
+                    $("#loading-wrapper").hide();
+                },
+                error: function(xhr, status, error) {
+                    $("#loading-wrapper").hide();
+                    $(".errorMessage").show();
+                } 
+
+            });
+    }
 
 
     function parseResult (data) {

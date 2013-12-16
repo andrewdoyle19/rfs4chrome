@@ -41,6 +41,13 @@ ul{
 	font-size: 13px; 
 }
 
+.errorMessage {
+	color: red;
+}
+
+.hidden {
+	display: none;	
+}
 
 .box {
 	float: left;
