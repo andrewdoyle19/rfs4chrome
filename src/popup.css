@@ -12,21 +12,24 @@ body{
 div[class*='item'] {
 	border-color: white;
 	border-style: solid;
-	padding: 4px;
-	background-color: rgb(226,225,225);
+	padding: 4px 4px 4px 4px;
+	background-color: rgb(221,221,221);
 	width: 375px;
 	height: 60px;
 
 }
 
 div[id*='detail'] {
-	border-color: white;
-	border-style: solid;
-	background-color: oldlace;
-	width: 380px;	
+	background-color: rgba(220,220,220,0.33);
+	width: 378px;	
 	overflow: hidden;
 	padding: 0px 0px 0px 5px;
 	display: none;
+	border-bottom: solid;
+	border-bottom-width: 4px;
+	border-bottom-color: rgb(221,221,221); 
+	margin-left: 3px;
+	padding-bottom: 5px;
 }
 
 ul{

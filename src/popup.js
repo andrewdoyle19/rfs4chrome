@@ -1,7 +1,7 @@
 $(function () {
     
-    //const url = "https://rfsforchromeservice.apphb.com/fires";
-    const url = "http://localhost/rfsforchrome.service/fires";
+    const url = "https://rfsforchromeservice.apphb.com/fires";
+    //const url = "http://localhost/rfsforchrome.service/fires";
     
     $.ajax({
             type: 'GET',
@@ -20,35 +20,8 @@ $(function () {
             var item = data[i];
             var markup = appendMarkup(item,i);
             $("#results").append(markup);
-        };        
-
-        $('.expand').click(function(){
-            var itemid = '#detail_' +$(this).attr('target');
-            var button = '#img_detail_' +$(this).attr('target');
-            
-        if($('.active').length === 0) {
-            $(itemid).slideDown();
-            $(itemid).addClass('active'); 
-            $(button).attr('src', 'images/up-arrow-grey.png');          
-        } else if (itemid == "#"+$('.active').attr('id')) {
-            $('.active').slideUp();
-            $(itemid).removeClass('active');
-            $(button).attr('src', 'images/down-arrow-grey.png');
-        } else {
-            $("[id^=img_detail]").attr('src', 'images/down-arrow-grey.png');
-            $('.active').slideUp(function() {
-                $(this).removeClass('active');
-                $(button).attr('src', 'images/down-arrow-grey.png');
-                if ($(".targetDiv:animated").length === 0){
-                    $(itemid).slideDown();
-                    $(itemid).addClass('active');
-                    $(button).attr('src', 'images/up-arrow-grey.png');
-                }
-        });
-    }
-    
-
-        });  		
+        };
+        bindClickExpand();         		
     }
 
     function appendMarkup(item, i) {
@@ -82,6 +55,33 @@ $(function () {
         return item;
     }
 
+    function bindClickExpand() {
+        $('.expand').click(function(){
+            var itemid = '#detail_' +$(this).attr('target');
+            var button = '#img_detail_' +$(this).attr('target');
+            
+            if($('.active').length === 0) {
+                $(itemid).slideDown();
+                $(itemid).addClass('active'); 
+                $(button).attr('src', 'images/up-arrow-grey.png');          
+            } else if (itemid == "#"+$('.active').attr('id')) {
+                $('.active').slideUp();
+                $(itemid).removeClass('active');
+                $(button).attr('src', 'images/down-arrow-grey.png');
+            } else {
+                $("[id^=img_detail]").attr('src', 'images/down-arrow-grey.png');
+                $('.active').slideUp(function() {
+                    $(this).removeClass('active');
+                    $(button).attr('src', 'images/down-arrow-grey.png');
+                    if ($(".targetDiv:animated").length === 0){
+                        $(itemid).slideDown();
+                        $(itemid).addClass('active');
+                        $(button).attr('src', 'images/up-arrow-grey.png');
+                    }
+                });
+            }
+        }); 
+    }
 
 
     function getDisplayCategory(item){
