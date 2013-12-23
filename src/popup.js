@@ -14,10 +14,10 @@ $(function () {
                 crossDomain: true,
                 success: function( data ) {
                     parseResult(data);
-                    $("#loading-wrapper").hide();
+                    $(".loading-wrapper").hide();
                 },
                 error: function(xhr, status, error) {
-                    $("#loading-wrapper").hide();
+                    $(".loading-wrapper").hide();
                     $(".errorMessage").show();
                 } 
 
@@ -39,14 +39,14 @@ $(function () {
         var category = item.Category.toLowerCase();
         var displayCategory = getDisplayCategory(category)
         var item =        
-            '<div class="item_'+ i +'">' +
+            '<div class="item expand" target="'+ i +'">' +
                 '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>'+ 
                 '<div class="left">' +                                
                     '<div class="title">' + item.Title +'</div>' +
                     '<div class="status">Status: ' + item.Status +'</div>' +  
                 '</div>' +
                 '<div class="right">' +                                 
-                    '<div class="expand" target="'+ i +'" >' +
+                    '<div target="'+ i +'" >' +
                          '<img id="img_detail_'+ i + '" src="images/down-arrow-grey.png"/>' +
                     '</div>'+
                 '</div>' +
