@@ -13,6 +13,10 @@ body{
 	width: 400px;
 }
 
+.heading{
+	font-weight: 800;
+}
+
 .loading-wrapper {
 	width: 20%;
 	display: block;
