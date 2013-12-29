@@ -37,7 +37,11 @@ $(function () {
 
     function appendMarkup(item, i) {
         var category = item.Category.toLowerCase();
-        var displayCategory = getDisplayCategory(category)
+        var displayCategory = getDisplayCategory(category);
+        var majorFireUpdate = '';
+        if(item.MajorFireUpdate) {
+            majorFireUpdate = '<li class="majorFireUpdate">MAJOR FIRE UPDATE: ' + item.MajorFireUpdate + '</li>';
+        }
         var item =        
             '<div class="item expand" target="'+ i +'">' +
                 '<div class="box ' + category +'"><img src="images/flames-' + category +'.png"/></div>'+ 
@@ -53,12 +57,13 @@ $(function () {
             '</div>' +
             '<div id="detail_'+ i + '" class="hidden">' + 
                 '<ul>' +
-                    '<li class="category">Category: ' + displayCategory + '</li>' +
-                    '<li class="location">Location: ' + item.Location + '</li>' +
-                    '<li class="council">Council: ' + item.CouncilArea + '</li>' +
-                    '<li class="Size">Type: ' + item.Type + '</li>' +
-                    '<li class="Size">Size: ' + item.Size + '</li>' +
-                    '<li class="lastUpdated">Last Updated: ' + item.LastUpdatedAsString + '</li>' +
+                    '<li class="category">CATEGORY: ' + displayCategory + '</li>' +
+                    '<li class="location">LOCATION: ' + item.Location + '</li>' +                    
+                    '<li class="council">COUNCIL: ' + item.CouncilArea + '</li>' +
+                    '<li class="Size">TYPE: ' + item.Type + '</li>' +
+                    '<li class="Size">SIZE: ' + item.Size + '</li>' +
+                    majorFireUpdate +
+                    '<li class="lastUpdated">LAST UPDATED: ' + item.LastUpdatedAsString + '</li>' +
                     '<li><a href="'+ item.Link +'" target="_blank">Rural Fire Service Website</a></li>' +
                 '</ul>' +
             '</div>';
